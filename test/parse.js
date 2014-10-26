@@ -2,7 +2,8 @@
 // nodemon -w . --exec npm test
 
 var util = require('util'),
-    fs = require('fs');
+    fs = require('fs'),
+    async = require('async');
 
 var log = function() {
   var args = Array.prototype.slice.call(arguments, 0);
@@ -20,6 +21,13 @@ module.exports.parse = function(assert) {
   // parse file
   xlsObject = plist.parse(filename);
   assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
+
+  // parse file using async
+  async.series([
+      plist.parseSync(filename),
+  ], function(err, result){
+      assert.deepEqual(JSON.parse(JSON.stringify(result)), fixture);
+  });
 
   // parse buffer
   xlsObject = plist.parse(fs.readFileSync(filename));
