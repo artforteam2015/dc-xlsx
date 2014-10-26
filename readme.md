@@ -1,7 +1,6 @@
 [async-xlsx](https://github.com/JoseBarrios/async-xlsx) 
 =================
 
-Excel parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
 Adds async support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
 
 Quick start
