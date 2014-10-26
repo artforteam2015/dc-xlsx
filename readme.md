@@ -15,11 +15,11 @@ var obj = xlsx.parse(__dirname + '/myFile.xlsx');
 // parses a buffer
 var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
-// parse file asynchronously
-xlsx.parseFileAsync(__dirname + '/myFile.xlsx', {options}, function(parsedData){
-	// Parsed data is now ready to be used	
+// parse file asynchronously, returns an object
+xlsx.parseFileAsync(__dirname + '/myFile.xlsx', {options}, function(parsedObject){
+	// Data is now ready	
 });
-// Do something else while file is being parsed and come back when file is ready
+// Do something else while file is being parsed and come back when file is ready...
 ```
 
 Building a plist from an object
