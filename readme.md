@@ -16,15 +16,18 @@ var obj = xlsx.parse(__dirname + '/myFile.xlsx');
 // parses a buffer
 var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
-// parses file(s) in a series, returns result(s) to callback when series is done
-async.series([xlsx.parseSync(__dirname + '/myFile.xlsx'), xlsx.parseSync(__dirname + '/otherFile.xlsx')], callback(err, result)); 
+// parses file(s) synchronously
+async.series([
+	xlsx.parseSync(__dirname + '/myFile.xlsx'), 
+	xlsx.parseSync(__dirname + '/otherFile.xlsx')
+], callback(err, files)); 
 ```
 
 Building a plist from an object
 ```javascript
 var xlsx = require('async-xlsx');
 
-var data = [[1,2,3],[true, false, null, 'sheetjs'],['foo','bar',new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
+var data = [[1,2,3],[true, false, null, 'sheetjs'],['foo','bar',new Date('2014-02-19T14:30Z'), '0.3']];
 var buffer = xlsx.build([{name: "mySheetName", data: data}]); // returns a buffer
 
 ```
