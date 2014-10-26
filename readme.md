@@ -17,7 +17,7 @@ var obj = xlsx.parse(__dirname + '/myFile.xlsx');
 var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
 // parses file(s) in a series, returns result(s) to callback when series is done
-async.series([xlsx.parseSync(__dirname + '/myFile.xlsx], xlsx.parseSync(__dirname + '/otherFile.xlsx], callback(err, result)); 
+async.series([xlsx.parseSync(__dirname + '/myFile.xlsx'), xlsx.parseSync(__dirname + '/otherFile.xlsx')], callback(err, result)); 
 ```
 
 Building a plist from an object
