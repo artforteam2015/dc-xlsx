@@ -1,38 +1,42 @@
 'use strict';
 // nodemon -w . --exec npm test
 
-var util = require('util'),
-    fs = require('fs'),
-    async = require('async');
+var util = require('util');
+var fs = require('fs');
+var Promise = require('bluebird');
 
 var log = function() {
-  var args = Array.prototype.slice.call(arguments, 0);
-  return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
+    var args = Array.prototype.slice.call(arguments, 0);
+    return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
 };
 
-var plist = require('../index');
 
 module.exports.parse = function(assert) {
+    var plist = require('../index');
+    var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
+    var filename = __dirname + '/fixtures/test.xlsx';
+    var xlsObject;
 
-  var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
-  var filename = __dirname + '/fixtures/test.xlsx';
-  var xlsObject;
+    // parse file
+    xlsObject = plist.parse(filename);
+    assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture, "Parse file asynchronously");
+    // parse buffer
+    xlsObject = plist.parse(fs.readFileSync(filename));
+    assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture, "Parse file to buffer");
+    assert.done();
+};
 
-  // parse file
-  xlsObject = plist.parse(filename);
-  assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
+module.exports.parseFileAsync = function(assert) {
+    var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
+    var filename = __dirname + '/fixtures/test.xlsx';
+    var plist = require('../index');
+    Promise.promisifyAll(plist);
+    Promise.promisifyAll(fs);
 
-  // parse file using async
-  async.series([
-      plist.parseSync(filename),
-  ], function(err, result){
-      assert.deepEqual(JSON.parse(JSON.stringify(result)), fixture);
-  });
-
-  // parse buffer
-  xlsObject = plist.parse(fs.readFileSync(filename));
-  assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
-
-  assert.done();
-
+    fs.readFileAsync(filename)
+        .then(plist.parse)
+        .then(function(xlsxObject) {
+            assert.deepEqual(JSON.parse(JSON.stringify(xlsxObject)), fixture, "Parse file with promise");
+            assert.done();
+        })
 };

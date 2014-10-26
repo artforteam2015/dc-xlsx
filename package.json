@@ -1,25 +1,27 @@
 {
-  "name": "node-xlsx",
-  "author": "Olivier Louvignes",
+  "name": "async-xlsx",
+  "author": "Jose Barrios",
   "license": "Apache License, Version 2.0",
-  "version": "0.5.1",
-  "description": "Node.js excel parser & builder",
+  "version": "0.0.1",
+  "description": "Node.js excel parser & builder with async support",
   "main": "index.js",
   "scripts": {
     "test": "nodeunit test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mgcrea/node-xlsx.git"
+    "url": "https://github.com/JoseBarrios/async-xlsx"
   },
   "keywords": [
     "excel",
-    "xlsx"
+    "xlsx",
+    "async",
+    "promise"
   ],
   "dependencies": {
     "lodash.defaults": "^2.4.1",
     "lodash.map": "^2.4.1",
-    "async": "^0.9.0",
+    "bluebird":"^2.3.6",
     "xlsx": "^0.7.10"
   },
   "devDependencies": {
