@@ -1,7 +1,7 @@
-[node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
+[async-xlsx](https://github.com/JoseBarrios/async-xlsx) 
 =================
 
-Excel parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
+Adds async support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
 
 Quick start
 -----------
@@ -41,16 +41,12 @@ Please submit all pull requests the against master branch. If your unit test con
 
 Authors
 -------
+xlsx: **SheetJSDev**
+node-xlsx: **Olivier Louvignes**
+asnyc-xlsx: **Jose Barrios**
 
-**Olivier Louvignes**
-
-+ http://olouv.com
-+ http://github.com/mgcrea
-
-Copyright and license
+License
 ---------------------
-
-  Copyright (C) 2012-2014  Olivier Louvignes
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -66,4 +62,4 @@ Copyright and license
 
   Except where noted, this license applies to any and all software programs and associated documentation files created by the Original Author and distributed with the Software:
 
-  'node-xlsx.js' is a modified version of SheetJS gist examples, Copyright (c) SheetJS.
+  'async-xlsx' is a modified version of SheetJS gist examples, Copyright (c) SheetJS.
