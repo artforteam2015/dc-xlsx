@@ -1,1 +1,1 @@
-module.exports = require('./lib/node-xlsx');
+module.exports = require('./lib/async-xlsx');
