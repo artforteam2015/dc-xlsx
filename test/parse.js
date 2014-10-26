@@ -5,10 +5,10 @@ var util = require('util');
 var fs = require('fs');
 var Promise = require('bluebird');
 
-var log = function() {
-    var args = Array.prototype.slice.call(arguments, 0);
-    return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
-};
+//var log = function() {
+    //var args = Array.prototype.slice.call(arguments, 0);
+    //return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
+//};
 
 
 module.exports.parse = function(assert) {
@@ -30,13 +30,9 @@ module.exports.parseFileAsync = function(assert) {
     var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
     var filename = __dirname + '/fixtures/test.xlsx';
     var plist = require('../index');
-    Promise.promisifyAll(plist);
-    Promise.promisifyAll(fs);
-
-    fs.readFileAsync(filename)
-        .then(plist.parse)
-        .then(function(xlsxObject) {
-            assert.deepEqual(JSON.parse(JSON.stringify(xlsxObject)), fixture, "Parse file with promise");
-            assert.done();
-        })
+    
+    plist.parseFileAsync(filename, {}, function( xlsxObject ){
+        assert.done();
+        assert.deepEqual(JSON.parse(JSON.stringify(xlsxObject)), fixture, "Parse file with promise");
+    })
 };

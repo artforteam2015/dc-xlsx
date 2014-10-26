@@ -2,7 +2,7 @@
   "name": "async-xlsx",
   "author": "Jose Barrios",
   "license": "Apache License, Version 2.0",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Node.js excel parser & builder with async support",
   "main": "index.js",
   "scripts": {
@@ -15,13 +15,11 @@
   "keywords": [
     "excel",
     "xlsx",
-    "async",
-    "promise"
+    "async"
   ],
   "dependencies": {
     "lodash.defaults": "^2.4.1",
     "lodash.map": "^2.4.1",
-    "bluebird":"^2.3.6",
     "xlsx": "^0.7.10"
   },
   "devDependencies": {
