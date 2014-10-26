@@ -16,7 +16,7 @@ var obj = xlsx.parse(__dirname + '/myFile.xlsx');
 var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
 // parse file asynchronously
-xlsx.parseAsync(__dirname + '/myFile.xlsx', {options}, function(parsedData){
+xlsx.parseFileAsync(__dirname + '/myFile.xlsx', {options}, function(parsedData){
 	// Parsed data is now ready to be used	
 });
 // Do something else while file is being parsed and come back when file is ready
