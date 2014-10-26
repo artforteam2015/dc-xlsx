@@ -10,17 +10,16 @@ Parsing a xlsx from file/buffer
 ```javascript
 var xlsx = require('async-xlsx');
 
-// parses a file asynchronously 
+// parses a file synchronously (may not be immediately available!)
 var obj = xlsx.parse(__dirname + '/myFile.xlsx'); 
-
 // parses a buffer
 var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
-// parses file(s) synchronously
-async.series([
-	xlsx.parseSync(__dirname + '/myFile.xlsx'), 
-	xlsx.parseSync(__dirname + '/otherFile.xlsx')
-], callback(err, files)); 
+// parse file asynchronously
+xlsx.parseAsync(__dirname + '/myFile.xlsx', {options}, function(parsedData){
+	// Parsed data is now ready to be used	
+});
+// Do something else while file is being parsed and come back when file is ready
 ```
 
 Building a plist from an object
