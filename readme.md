@@ -1,24 +1,28 @@
 [async-xlsx](https://github.com/JoseBarrios/async-xlsx) 
 =================
 
-Adds async support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
+Adds [async](https://github.com/caolan/async) support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
 
 Quick start
 -----------
 
 Parsing a xlsx from file/buffer
-``` javascript
-var xlsx = require('node-xlsx');
+```javascript
+var xlsx = require('async-xlsx');
 
-var obj = xlsx.parse(__dirname + '/myFile.xlsx'); // parses a file
+// parses a file asynchronously 
+var obj = xlsx.parse(__dirname + '/myFile.xlsx'); 
 
-var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); // parses a buffer
+// parses a buffer
+var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
+// parses file(s) in a series, returns result(s) to callback when series is done
+async.series([xlsx.parseSync(__dirname + '/myFile.xlsx], xlsx.parseSync(__dirname + '/otherFile.xlsx], callback(err, result)); 
 ```
 
 Building a plist from an object
-``` javascript
-var xlsx = require('node-xlsx');
+```javascript
+var xlsx = require('async-xlsx');
 
 var data = [[1,2,3],[true, false, null, 'sheetjs'],['foo','bar',new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 var buffer = xlsx.build([{name: "mySheetName", data: data}]); // returns a buffer
@@ -28,7 +32,7 @@ var buffer = xlsx.build([{name: "mySheetName", data: data}]); // returns a buffe
 Testing
 -------
 
-`node-xlsx` is tested with `nodeunit`.
+`async-xlsx` is tested with `nodeunit`.
 
 >
 	npm install --dev
@@ -41,9 +45,8 @@ Please submit all pull requests the against master branch. If your unit test con
 
 Authors
 -------
-xlsx: **SheetJSDev**
-node-xlsx: **Olivier Louvignes**
-asnyc-xlsx: **Jose Barrios**
+[Jose Barrios] (https://github.com/JoseBarrios)
+
 
 License
 ---------------------
