@@ -1,7 +1,7 @@
 [async-xlsx](https://github.com/JoseBarrios/async-xlsx) 
 =================
 
-Adds [async](https://github.com/caolan/async) support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
+Adds [promise](https://github.com/petkaantonov/bluebird) support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
 
 Quick start
 -----------
