@@ -16,7 +16,6 @@ module.exports.parse = function(assert) {
     var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
     var filename = __dirname + '/fixtures/test.xlsx';
     var xlsObject;
-
     // parse file
     xlsObject = plist.parse(filename);
     assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture, "Parse file asynchronously");
@@ -30,7 +29,6 @@ module.exports.parseFileAsync = function(assert) {
     var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
     var filename = __dirname + '/fixtures/test.xlsx';
     var plist = require('../index');
-    
     plist.parseFileAsync(filename, {}, function( xlsxObject ){
         assert.done();
         assert.deepEqual(JSON.parse(JSON.stringify(xlsxObject)), fixture, "Parse file with promise");
