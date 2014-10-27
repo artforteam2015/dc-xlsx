@@ -3,7 +3,6 @@
 
 var util = require('util');
 var fs = require('fs');
-var Promise = require('bluebird');
 
 //var log = function() {
     //var args = Array.prototype.slice.call(arguments, 0);

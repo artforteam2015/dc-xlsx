@@ -1,6 +1,5 @@
 'use strict';
 // nodemon -w . --exec npm test
-var NodeunitAsync = require('nodeunit-async');
 var util = require('util');
 var fs = require('fs');
 
