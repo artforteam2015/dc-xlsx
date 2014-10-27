@@ -1,7 +1,7 @@
 [async-xlsx](https://github.com/JoseBarrios/async-xlsx) 
 =================
 
-Adds [promise](https://github.com/petkaantonov/bluebird) support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
+Adds [async](https://www.npmjs.org/package/each-async) support to [node-xlsx](http://mgcrea.github.com/node-xlsx).
 
 Quick start
 -----------
@@ -10,21 +10,28 @@ Parsing a xlsx from file/buffer
 ```javascript
 var xlsx = require('async-xlsx');
 
+//  ------------------ Synchronous ----------------------------
 // Covert excel file to JSON object
 var obj = xlsx.parse(__dirname + '/myFile.xlsx'); 
 // Convert excel file to buffer
 var buffer = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
+// Returns a buffer
+var data = [[1,2,3],[true, false, null, 'sheetjs'],['foo','bar',new Date('2014-02-19T14:30Z'), '0.3']];
+var buffer = xlsx.build([{name: "mySheetName", data: data}]); 
 
 
-// Transform an Excel file to a JSON object asynchronously
+
+//  ------------------ Asynchronous ----------------------------
+// Transform an Excel file to JSON or an 2D array (async)
 xlsx.parseFileAsync(__dirname + '/myFile.xlsx', {options}, function(parsedObject){
 	// Callbacks happens when the Excel data is fully loaded and ready for use	
 });
 
-//  array as an excel file 
-xlsx.buildAsync(array, {options}, function(error, xlsData) {
+//  ------------------ Asynchronous ----------------------------
+// Easily build an Excel document from a 2D array (async)
+xlsx.buildAsync( [{name: "SheetName", data: [[2D][array]] }], {options}, function(error, xlsBuffer) {
 	if(!error){
-		//xlsData is saved!
+		// Buffer is ready.
 	}
 });
 
