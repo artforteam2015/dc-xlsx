@@ -10,16 +10,24 @@ Parsing a xlsx from file/buffer
 ```javascript
 var xlsx = require('async-xlsx');
 
-// parses a file synchronously (may not be immediately available!)
+// Covert excel file to JSON object
 var obj = xlsx.parse(__dirname + '/myFile.xlsx'); 
-// parses a buffer
-var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
+// Convert excel file to buffer
+var buffer = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); 
 
-// parse file asynchronously, returns an object
+
+// Transform an Excel file to a JSON object asynchronously
 xlsx.parseFileAsync(__dirname + '/myFile.xlsx', {options}, function(parsedObject){
-	// Data is now ready	
+	// Callbacks happens when the Excel data is fully loaded and ready for use	
 });
-// Do something else while file is being parsed and come back when file is ready...
+
+//  array as an excel file 
+xlsx.buildAsync(array, {options}, function(error, xlsData) {
+	if(!error){
+		//xlsData is saved!
+	}
+});
+
 ```
 
 Building a plist from an object
