@@ -1,0 +1,14 @@
+{
+  "name": "each-async",
+  "homepage": "https://github.com/sindresorhus/each-async",
+  "version": "1.1.0",
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.0",
+    "commit": "136a1e84dfd0ec8e84b600eb566cbd3a9d169005"
+  },
+  "_source": "git://github.com/sindresorhus/each-async.git",
+  "_target": "1.1.0",
+  "_originalSource": "each-async"
+}

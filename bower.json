@@ -1,0 +1,29 @@
+{
+  "name": "async-xlsx",
+  "main": "lib/async-xlsx.js",
+  "version": "0.5.2",
+  "homepage": "https://github.com/JoseBarrios/async-xlsx",
+  "authors": [
+    "Jose Barrios <jlbarrios22@gmail.com>"
+  ],
+  "description": "A simple Excel parser and builder that actually works.",
+  "keywords": [
+    "Excel",
+    "xlsx",
+    "spreadsheets",
+    "js"
+  ],
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "js-xlsx": "^0.7.10",
+    "each-async": "1.1.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
