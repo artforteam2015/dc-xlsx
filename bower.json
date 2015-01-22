@@ -1,7 +1,7 @@
 {
   "name": "async-xlsx",
-  "main": "lib/async-xlsx.js",
-  "version": "0.5.4",
+  "main": "dist/async-xlsx.js",
+  "version": "0.5.5",
   "homepage": "https://github.com/JoseBarrios/async-xlsx",
   "authors": [
     "Jose Barrios <jlbarrios22@gmail.com>"
