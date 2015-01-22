@@ -1,8 +1,8 @@
 {
   "name": "async-xlsx",
   "author": "Jose Barrios",
-  "license": "Apache License, Version 2.0",
-  "version": "0.0.7",
+  "license": "MIT",
+  "version": "0.5.4",
   "description": "Node.js excel parser & builder with async support",
   "main": "index.js",
   "scripts": {
