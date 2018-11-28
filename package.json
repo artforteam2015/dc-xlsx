@@ -18,10 +18,10 @@
     "async"
   ],
   "dependencies": {
+    "each-async": "1.1.0",
     "lodash.defaults": "^2.4.1",
     "lodash.map": "^2.4.1",
-    "xlsx": "^0.7.10",
-    "each-async": "1.1.0"
+    "xlsx": "github:artforteam2015/xlsxOld"
   },
   "devDependencies": {
     "nodeunit": "^0.9.0"
